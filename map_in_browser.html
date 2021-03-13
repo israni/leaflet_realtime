@@ -23,25 +23,6 @@
   <body>
     <div id="mapid"></div>
     <script src="leaflet-realtime/dist/leaflet-realtime.js"></script>
-    <script>
-      first = true;
-      var map = L.map("mapid"),
-        realtime = L.realtime("http://localhost:3000/", {
-          interval: 0.000001 * 1000,
-        }).addTo(map);
-
-      L.tileLayer("http://{s}.tile.osm.org/{z}/{x}/{y}.png", {
-        attribution:
-          '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors',
-      }).addTo(map);
-
-      realtime.on("update", function () {
-        if (first) {
-          map.fitBounds(realtime.getBounds(), { maxZoom: 10 });
-          first = false;
-        } else {
-        }
-      });
-    </script>
+    <script src="map_in_browser.js"></script>
   </body>
 </html>
